@@ -1,6 +1,3 @@
-
-#include <stdio.h>
-
 #include <stdio.h>
 
 int sort_without_reps(short *src, int n, short *dest) {
