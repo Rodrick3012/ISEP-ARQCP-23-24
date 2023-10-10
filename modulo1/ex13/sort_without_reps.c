@@ -3,18 +3,20 @@
 int sort_without_reps(short *src, int n, short *dest) {
     short unique[n];
     int unique_count = 0;
-    short *src_ptr = src;
-    short *dest_ptr = dest;
-    for (int i = 0; i < n; i++) {
+    short *src_ptr = src; // Point to the pointer of array
+    short *dest_ptr = dest; // Point to the pointer of destiny
+    int i;
+    int j;
+    for (i = 0; i < n; i++) {
         short current = *src_ptr;
         int is_duplicate = 0;
-        for (int j = 0; j < unique_count; j++) {
+        for (j = 0; j < unique_count; j++) {
             if (unique[j] == current) {
-                is_duplicate = 1;
+                is_duplicate = 1; // The number is duplicated in the array
                 break;
             }
         }
-        if (!is_duplicate) {
+        if (!is_duplicate) { // is_duplicate != 1 (The number is not duplicated in the array)
             unique[unique_count] = current;
             unique_count++;
             *dest_ptr = current;
@@ -22,17 +24,20 @@ int sort_without_reps(short *src, int n, short *dest) {
         }
         src_ptr++;
     }
-    for (int i = 0; i < unique_count - 1; i++) {
-        for (int j = i + 1; j < unique_count; j++) {
-            if (unique[i] > unique[j]) {
-                short temp = unique[i];
-                unique[i] = unique[j];
-                unique[j] = temp;
+    int k;
+    int l;
+    for (k = 0; j < unique_count - 1; k++) {
+        for (l = k + 1; j < unique_count; l++) {
+            if (unique[k] > unique[l]) { // Sort the unique values of array in ascending order
+                short temp = unique[k];
+                unique[k] = unique[l];
+                unique[l] = temp;
             }
         }
     }
-    for (int i = 0; i < unique_count; i++) {
-        printf("%d ", *(dest+i));
+    int m;
+    for (m = 0; m < unique_count; m++) {
+        printf("%d ", *(dest+m)); // Print the destination array
     }
     printf("\n");
     return unique_count;
