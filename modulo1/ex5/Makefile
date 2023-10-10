@@ -1,7 +1,10 @@
 # A simple MakeFile
-ex5 : main.o
-		gcc main.o -o ex5
+ex5 : sum_even.o main.o
+		gcc sum_even.o main.o -o ex5
 	
+sum_even.o : sum_even.c
+		gcc -g -Wall -Wextra -fanalyzer -c sum_even.c -o sum_even.o
+
 main.o : main.c
 		gcc -g -Wall -Wextra -fanalyzer -c main.c -o main.o
 		
