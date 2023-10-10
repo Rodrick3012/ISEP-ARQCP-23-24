@@ -1,7 +1,10 @@
 # A simple MakeFile
-ex7 : main.o
+ex7 : get_array_statistics.o main.o
 		gcc main.o -o ex7
 	
+get_array_statistics.o : get_array_statistics.c
+		gcc -g -Wall -Wextra -fanalyzer -c get_array_statistics.c -o get_array_statistics.o
+
 main.o : main.c
 		gcc -g -Wall -Wextra -fanalyzer -c main.c -o main.o
 		
