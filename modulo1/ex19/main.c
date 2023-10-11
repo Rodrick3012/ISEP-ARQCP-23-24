@@ -1,13 +1,5 @@
 #include <stdio.h>
-
-void swap(short *vec1, short *vec2, int size){
-	int i;
-	for (i = 0; i < size; i++){
-		short temp = vec1[i];
-		vec1[i] = vec2[i];
-		vec2[i] = temp;
-	}
-}
+#include "swap.h"
 
 int main()
 {
