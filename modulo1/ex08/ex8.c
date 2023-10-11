@@ -8,8 +8,8 @@ void swap_nums(int *x, int *y) {
     *y = tmp;
 }
 
-void swap_pointers(char **x, char **y) {
-    char *tmp;
+void swap_pointers(char *x, char *y) {
+    char tmp;
     tmp = *x;
     *x = *y;
     *y = tmp;
