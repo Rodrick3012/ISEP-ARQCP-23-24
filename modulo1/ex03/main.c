@@ -3,9 +3,10 @@
 
 int main() {
     char myString[] = "Hello, World!";
+    char* ptr = myString;
     printf("%s\n", myString);
 
-    capitalize(myString);
+    capitalize(ptr);
 
     printf("%s\n", myString);
 

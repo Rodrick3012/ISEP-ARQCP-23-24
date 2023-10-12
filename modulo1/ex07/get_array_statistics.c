@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 void get_array_statistics(int *vec, int n, int *min, int *max,float *avg){
-	*min = *vec; // Initialize the min with the first position of vec
-	*max = *vec; // Initialize the max with the first position of vec
+	*min = *vec; // Initializes the minimum value in the first position of the array;
+	*max = *vec; // Initializes the maximum value in the first position of the array;
 	int i;
 	int sum = 0;
 	for(i = 0; i < n; i++){
