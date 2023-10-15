@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h> // Inclua a biblioteca time porque caso contrario o rand dara dsempre o mesmo conjunto de numeros
 #include "ex18.h"
 
 int main() {

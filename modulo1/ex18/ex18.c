@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h> // Inclua a biblioteca time porque caso contrario o rand dara dsempre o mesmo conjunto de numeros
 #include "ex18.h"
 
 
@@ -10,6 +11,8 @@ void inc_nsets() {
 }
 
 void populate(unsigned char *vec, int num, unsigned char limit) {
+	// Inicialize a semente com o valor atual do relógio
+    srand(time(NULL));
     for (int i = 0; i < num; i++) {
         // Generate a random value between 0 and the specified limit (permite que esteja sempre dentor do limit)
         unsigned char random_value = (unsigned char)(rand() % (limit + 1));
