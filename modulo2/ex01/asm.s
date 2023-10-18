@@ -3,7 +3,7 @@
 	.global op2
 	.global res
 .section .text
-	.global sum # void sum(void)
+	.global sum
 	sum:
 		movl op1(%rip), %ecx # place op1 in ecx
 		movl op2(%rip), %eax # place op2 in eax
