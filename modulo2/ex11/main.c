@@ -3,8 +3,7 @@
 
 int main()
 {
-	long res = sum_and_subtract();
-	printf("%ld\n", res);
+	char res = verify_flags();
+	printf("%d\n", res);
 	return 0;
 }
-
