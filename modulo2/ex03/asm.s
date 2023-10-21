@@ -15,5 +15,5 @@
 		addl %edx, %eax # (CONST - op1) + (CONST - op2)
 		movl $CONST, %edx # place CONST in edx
 		addl %eax, %edx # (CONST - op1) + (CONST - op2) + CONST
-		movsxl %edx, %rax # transform the integer (word) in 32-bits into a long (quad) in 64-bits
+		movslq %edx, %rax # transform the integer (word) in 32-bits into a long (quad) in 64-bits
 		ret
