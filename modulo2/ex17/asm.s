@@ -40,5 +40,6 @@
 	power_of_3:
 		movl op1(%rip), %eax # set op1 in register eax (needed to make the multiplication)
 		mull %eax # make the multiplication (op1 * op1), this is equals op1^2
-		mull %eax # make another multiplication (op1 * op1 * op1), this is equals op1^3
+		movl op1(%rip), %ecx # set another op1 in register ecx
+		mull %ecx # make another multiplication (op1 * op1 * op1), this is equals op1^3
 		ret
