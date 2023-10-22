@@ -1,8 +1,11 @@
 .section .data
+	.global length1
 	length1:
 		.int 3
+	.global length2
 	length2:
 		.int 5
+	.global height
 	height:
 		.int 6
 .section .text
