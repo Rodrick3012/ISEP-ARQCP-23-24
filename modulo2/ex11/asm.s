@@ -1,13 +1,11 @@
 .section .data
-	op1:
-		.short 10
-	op2:
-		.short 1
+	.global op1
+	.global op2
 .section .text
 	.global verify_flags
 	verify_flags:
 		movw op1(%rip), %cx # sets variable op1 in cx register
-		addw op2(%rip), %cx
+		addw op2(%rip), %cx # adds op1 to op2
 		jc carry_flag
 		jo overflow_flag
 		movb $0, %al

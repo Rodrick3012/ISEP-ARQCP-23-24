@@ -1,6 +1,5 @@
 .section .data
-	num:
-		.quad 10
+	.global num
 .section .text
 	.global steps
 	steps:
@@ -9,7 +8,7 @@
 	a:
 		movq $3, %rcx # set value 3 in register ecx
 		cqto # transform the quad value (rax) into the value necessary to division (rdx:rax)
-		divq %rcx # "Divides by 3"
+		idivq %rcx # "Divides by 3"
 		jmp b # jump to step b
 	b:
 		addq $6, %rax # "Adds 6"
