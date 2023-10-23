@@ -1,8 +1,13 @@
 .section .data
 
+	s1:
+	.short 0
 	
-	.global s1
-	.global s2
+	s2:
+	.short 0	#declare s1 and s2
+
+	
+	.global s1, s2	#make them global
 
 	
 	

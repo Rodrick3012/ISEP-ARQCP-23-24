@@ -2,7 +2,7 @@
 #include <inttypes.h>
 #include "asm.h"
 
-short s1=0, s2=0;
+
 
 int main(void) {
 	

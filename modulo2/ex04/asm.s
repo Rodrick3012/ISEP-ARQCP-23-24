@@ -1,14 +1,11 @@
 .section .data
 
 	op3:
-	.quad 5 #inicializei variavel op3
+	.quad 0 #inicializei variavel op3
 	op4:
-	.quad 5 #inicializei variavel op4
+	.quad 0 #inicializei variavel op4
 	
-	.global op1
-	.global op2
-	.global op3
-	.global op4
+	.global op1, op2, op3, op4
 	
 	
 .section .text
@@ -27,6 +24,7 @@
 		movsxd %rax, op2(%rip)	# movl op2(%rip), %eax  movslq %eax , %rax FAZ ESTES DOIS AO MESMO TEMPO
 		subq %rax, %rsp 	# op3+op4-op2-op2.result in rsp
 		addq %rsp, rcx 	#op3+op4-op2-op2+op1-op4.Result in rcx
+		movq %rcx, %rax 	# place rcx in rax to return
 		
 		
 		
