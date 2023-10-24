@@ -6,8 +6,8 @@
 		movq num(%rip), %rax # set num in register rax
 		jmp a # jump to step a
 	a:
+		cqto # extends register rax to register rdx, necessary to make the division
 		movq $3, %rcx # set value 3 in register ecx
-		cqto # transform the quad value (rax) into the value necessary to division (rdx:rax)
 		idivq %rcx # "Divides by 3"
 		jmp b # jump to step b
 	b:
