@@ -2,15 +2,19 @@
 #include <inttypes.h>
 #include "asm.h"
 
-long A, B;
+int A, B, C, D;
 
 int main(void) {
 	
 	printf("Valor A:");
-	scanf("%ld",&A);
+	scanf("%d",&A);
 	printf("Valor B:");
-	scanf("%ld",&B);
-	char res = isMultiple();
+	scanf("%d",&B);
+	printf("Valor C:");
+	scanf("%d",&C);
+	printf("Valor D:");
+	scanf("%d",&D);
+	int res = compute();
 	printf("Resultado: %d\n", res);
 	return 0;
 }
