@@ -1,9 +1,9 @@
 .section .data
 
 	op3:
-	.quad 0 #inicializei variavel op3
+	.quad 1 #inicializei variavel op3
 	op4:
-	.quad 0 #inicializei variavel op4
+	.quad 1 #inicializei variavel op4
 	
 	.global op1, op2, op3, op4
 	

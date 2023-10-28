@@ -17,14 +17,14 @@
 		je true
 		addl j(%rip), %eax	#i+j.result in eax
 		subl $1, %eax	#i+j-1.result in eax
-		jmp end1
+		jmp end
 		
-		true:
+		condf:
 			subl j(%rip), %eax		#i-j
 			addl $1, %eax		#i-j +1.result in eax
+			jmp end
 		
-		end1:
-			ret
+		
 	
 	
 	# ------------------------------------------------------------------
@@ -35,16 +35,17 @@
 		movl j(%rip), %ecx	#place j in ecx
 		
 		cmp j(%rip), %eax
-		jg true
+		jg condf2
 		incl %ecx		#j=j+1
-		jmp end2
+		imull i(%rip), %ecx 		#h=i*j.result in ecx
+		movl %ecx, %eax	#place ecx in eax oin order to return
+		jmp end
 		
-		true1:
+		condf2:
+		
 			decl %eax
-			
-		end2:
 			imull %ecx  #h=i*j.resuilt in eax  # % edx :% eax = %ecx * %eax
-			ret
+			jmp end
 			
 			
 	# ------------------------------------------------------------------
@@ -52,26 +53,27 @@
 	f3:
 	
 		movl i(%rip), %eax	#place i in eax
-		movl j(%rip), %ecx	#place j in ecx
+
 		
-		cmp %ecx, %eax
-		jge true3
+		cmp j(%rip), %eax
+		jge condf3
 		
-		addl %eax, %ecx 	#h=i+j.result in ecx
-		addl j(%rip), %eax	#i+j.result in eax
-		addl $2, %eax	#i+j+2.result in eax  g
-		jmp end3
+		addl j, %eax
+		addl $2, %eax
+		movl j, %ecx
+		addl i, %ecx
+		cltd
+		idivl %ecx
+		jmp end
 		
 		
-		true3:
+		
+		condf3:
 			imull i(%rip), %ecx 	#i*j.result in ecx  h
 			incl %eax	#g=i+1
-			
-			
-		end3:
 			cltd
 			idivl %ecx
-			ret
+			jmp end
 			
 			
 			
@@ -80,25 +82,29 @@
 		
 		f4:
 			movl $0, %edx
-			movl i, %eax
+			movl i(%rip), %eax
 			
-			addl j, %eax
+			addl j(%rip), %eax
 			cmp $10, %eax
-			jg condf4
+			jl condf4
 	
-			movl j, %eax
+			movl j(%rip), %eax
+			imull j(%rip), %eax		#j*j. result in eax
 			cltd
 			movl $3, %ecx
-			idivl %ecx
+			idivl %ecx	#quotient in eax
 	
-			jmp end4
+			jmp end
 	
 		condf4:
 			movl i, %eax
 			imull i, %eax		# i*i
 			imull $4, %eax		#i*i*4
+			jmp end
 			
-		end4:
+			
+			
+		end:
 			ret
 			
 	
