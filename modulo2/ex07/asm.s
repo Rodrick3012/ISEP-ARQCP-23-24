@@ -16,6 +16,4 @@
 		movb %ch, %al	#put op2-op1 in al in order to form the short we want to return
 		
 		
-		
-		
 		ret

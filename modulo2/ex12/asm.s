@@ -10,7 +10,7 @@
 	.global isMultiple # char isMultiple()
 	isMultiple:
 		movq A(%rip), %rax #place A in eax #dividend rax
-		cltq	#sign-extend double word (long) in %eax to quad word in %rax
+		cqto	#sign-extend double word (long) in %eax to quad word in %rax
 		movq B(%rip), %rcx  		# divisor : rcx
 		cmp $0, %rcx	# compare 0 with B, if equal jump to zero condition
 		je zero

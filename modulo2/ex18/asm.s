@@ -10,9 +10,7 @@
 
 
 	
-	.global A, B, n	 #make them global
-
-	
+	.global n	 #make them global
 	
 .section .text
 	.global sigma # int sigma()
@@ -37,6 +35,7 @@
 		idivl  %ecx 	# divides % edx :% eax by % ecx ( remainder in %edx , quotient in % eax )
 		addl %eax, %esi	#places eax in esi	
 		decl %edi
+
 		
 		jmp my_loop
 		

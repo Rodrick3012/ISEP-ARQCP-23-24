@@ -14,10 +14,15 @@
 		movq op4(%rip), %rax # place op1 in rax
 		addq op3(%rip), %rax 	# op3+op4. result in rax
 		movl op2(%rip), %ecx	#place op2 in ecx
-		subl op2(%rip), %ecx	#op2-op2.result in ecx
-		addl op1(%rip), %ecx	#ecx+op1.result in ecx
-		movslq %ecx, %rcx	#sign extend ecx to quad
-		subq %rcx, %rax	#final result in rax
+		movslq %ecx, %rcx
+		subq %rcx, %rax
+		movl op2(%rip), %ecx
+		movslq %ecx, %rcx
+		subq %rcx, %rax
+		movl op1(%rip), %ecx
+		movslq %ecx, %rcx
+		addq %rcx, %rax
+		subq op4(%rip), %rax	#final result in rax
 		
 	
 		
