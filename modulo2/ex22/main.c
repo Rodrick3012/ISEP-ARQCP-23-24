@@ -1,30 +1,20 @@
 #include <stdio.h>
-#include <inttypes.h>
 #include "asm.h"
 
-short num;
-int i, j, res;
-
+int i=1, j=10, h = 0, g = 0, r = 0;
 int main(void) {
-	
-	printf("Valor i:");
-	scanf("%d",&i);
-	printf("Valor j:");
-	scanf("%d",&j);
-	
-	
-    res =f();
-    printf("Resultado f %d\n", res);
-    res =f2();
-    printf("Resultado f2 %d\n", res);
-    res =f3();
-    printf("Resultado f3 %d\n", res);
-    res =f4();
-    printf("Resultado f4 %d\n", res);
-    
-	return 0;
+
+printf("result for f1-->%d\n", f());
+printf("result for f2-->%d\n", f2());
+printf("result for f3-->%d\n", f3());
+printf("result for f4-->%d\n", f4());
+
+return 0;
+
+
+
+
+
+
+
 }
-
-
-
-
