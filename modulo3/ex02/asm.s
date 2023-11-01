@@ -1,7 +1,7 @@
 .section .text
 	.global str_copy_roman
 	str_copy_roman:
-	movb (%rdi), %al
+		movb (%rdi), %al
 	my_loop:
 		cmpb $0, %al
 		je end
