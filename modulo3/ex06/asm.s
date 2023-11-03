@@ -1,18 +1,18 @@
 .section .text
 	.global encrypt
 	encrypt:
-	movl $0, %eax
+	movl $0, %eax # set the number of char values encrypted in register eax
 	my_loop:
-		cmpb $0, (%rdi)
-		je end
-		cmpb $' ', (%rdi)
-		je skip
-		cmpb $'a', (%rdi)
-		je skip
-		addb $1, (%rdi)
-		incl %eax
+		cmpb $0, (%rdi) # compares the string terminator with the value pointed to the string
+		je end # jump if string terminates
+		cmpb $' ', (%rdi) # compares the space in ascii with the value pointed to the string
+		je skip # skips the encryptation of the char value
+		cmpb $'a', (%rdi) # compares the value a in ascii with the value pointed to the string
+		je skip # skips the encryptation of the char value
+		addb $1, (%rdi) # adds value 1 to the value pointed to the string -> encrypts the char
+		incl %eax # increments the number of char values encrypted
 	skip:
-		incq %rdi
-		jmp my_loop
+		incq %rdi # increments the pointer -> move to the next position
+		jmp my_loop # make the loop
 	end:
 		ret
