@@ -3,7 +3,8 @@
 	calculate:
 	pushq %rbp
 	movq %rsp, %rbp
-	subq $8, %rbp
+	subq $8, %rsp
+	
 	pushq %rbx
 	pushq %r10
 	
@@ -27,8 +28,8 @@
 	movl -4(%rbp), %ecx
 	call print_result
 	
-	popq %rdi
 	popq %rsi
+	popq %rdi
 	
 	movl %edi, %eax
 	movl %esi, %ebx
@@ -37,21 +38,21 @@
 	pushq %rsi
 	
 	movb $'-', %dil
-	movl %ebx, %esi
-	movl %eax, %edx
+	movl %eax, %esi
+	movl %ebx, %edx
 	movl -8(%rbp), %ecx
 	call print_result
 	
-	popq %rdi
 	popq %rsi
+	popq %rdi
 	
 	movl -8(%rbp), %eax
-	movl -4(%rbp), %ebx
-	subl %ebx, %eax
-	
+	subl -4(%rbp), %eax
+
 	popq %r10
 	popq %rbx
-	addq $8, %rbp
+	
+	addq $8, %rsp
 	movq %rbp, %rsp
 	popq %rbp
 	ret
