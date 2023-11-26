@@ -2,6 +2,7 @@
 	.global vec_sum
 	vec_sum:
 		movw $0, %dx # set the counter of elements in register edx
+		movq $0 , %rcx
 		
 		movw %si, %cx # set the length of array in register cx
 		movl $0, %eax	#0 where we summing
@@ -14,8 +15,8 @@
 		
 		addl (%rdi), %eax	#summing elements
 		
-		incq %rdi	#goes to next element of array
-		incw %dx	#word counter ++
+		addq $4, %rdi	#goes to next element of array
+		incw %dx	#word counter
 		
 		jmp my_loop
 		
@@ -24,6 +25,9 @@
 		
 	end:
 		ret
+		
+		
+
 		
 		
 		
