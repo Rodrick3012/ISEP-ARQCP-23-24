@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include "output_struct.h"
 
-#define MAX_LINE_LENGTH 100
+#define MAX_LINE_LENGTH 115
 #define NUM_SENSORS 10
 
 void initialize_sensor_data(SensorData *sensor){
